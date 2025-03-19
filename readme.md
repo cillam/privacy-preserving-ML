@@ -1,3 +1,13 @@
+None selected 
+
+Skip to content
+Using Gmail with screen readers
+in:sent 
+Conversations
+8.01 GB of 15 GB used
+Terms · Privacy · Program Policies
+Last account activity: 2 hours ago
+Details
 # Connecting to Heroku PostgreSQL
 This guide shows how to access data in two different ways,
 using the traditional `psycopg2` library as well as `sqlalchemy`, a library that abstracts SQL code in favor of a more pythonic implementation.
@@ -88,4 +98,13 @@ where table_schema = 'public'
 and table_type = 'BASE TABLE'
 ```
 
-Running this through the `execute_sql` function returns a list of table names that can then be queried for extra discovery.
+## Table Fields
+You can get a list of the columns for a table with the following sql:
+```sql
+SELECT column_name
+FROM information_schema.columns
+WHERE table_schema = 'public'
+AND table_name   = 'reviews';
+```
+
+Running this through the `execute_sql` function returns a list of table / field names that can then be queried for extra discovery.
