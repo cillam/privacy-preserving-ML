@@ -2,3 +2,4 @@
 .idea/
 data/philly_restaurant_reviews.pkl
 yelp_dataset/
+data/
