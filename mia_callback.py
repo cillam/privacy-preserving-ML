@@ -8,6 +8,7 @@ from simple_mia import compute_mia_scores, run_simple_threshold_attack
 from sklearn.metrics import f1_score
 
 class MembershipInferenceCallback(Callback):
+    # Class initalization
     def __init__(self, train_inputs, train_labels, val_inputs, val_labels, run_epochs=[5, 10]):
         super().__init__()
         self.train_inputs = train_inputs
@@ -19,6 +20,7 @@ class MembershipInferenceCallback(Callback):
         self.epoch_predictions = []  # store predictions from every epoch
         self.f1_per_epoch = []       # new: store f1 per epoch
 
+    # function to calculate probabilities and call attack function
     def on_epoch_end(self, epoch, logs=None):
         # Predict on train and validation
         train_logits = self.model.predict(self.train_inputs, verbose=0)
